@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +19,7 @@ public class ApothicCombat
 {
     public static final String MODID = "apothiccombat";
     private static final Logger LOGGER = LogManager.getLogger();
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public void clearReachModifiers(ItemAttributeModifierEvent event) {
         if (event.getModifiers().containsKey(ForgeMod.ENTITY_REACH.get())) {
             event.removeAttribute(ForgeMod.ENTITY_REACH.get());
