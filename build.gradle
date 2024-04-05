@@ -101,6 +101,9 @@ repositories {
             includeGroup "dev.shadowsoffire"
         }
     }
+    maven { url 'https://maven.shedaniel.me/' }
+    maven { url 'https://maven.kosmx.dev/' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -121,6 +124,8 @@ dependencies {
     if(project.hasProperty('attributeslibVersion')) implementation fg.deobf("dev.shadowsoffire:ApothicAttributes:${mcVersion}-${attributeslibVersion}")
     if(project.hasProperty('apotheosisVersion')) implementation fg.deobf("dev.shadowsoffire:Apotheosis:${mcVersion}-${apotheosisVersion}")
     if(project.hasProperty('betterCombatVersion')) implementation fg.deobf("maven.modrinth:better-combat:${betterCombatVersion}+${mcVersion}-forge")
+    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${project.playerAnimVersion}")
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${project.clothConfigVersion}")
 }
 
 mixin {
